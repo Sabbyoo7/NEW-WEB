@@ -6,380 +6,135 @@
     <title>Sunshine Industries - Premium Plastic Products Manufacturer</title>
     <meta name="description" content="Leading manufacturer of high-quality plastic household goods, furniture, and industrial products. ISO 9001:2015 certified with 25+ years of experience.">
     <meta name="keywords" content="plastic products, household goods, plastic furniture, industrial products, waste management, injection molding, Sunshine Industries">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Styles -->
-    <style>
-        html { scroll-behavior: smooth; }
-        
-        button:focus-visible, a:focus-visible {
-            outline: 2px solid #f97316;
-            outline-offset: 2px;
-            border-radius: 8px;
-        }
-        
-        * {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 300ms;
-        }
-        
-        .animate-pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-        .animate-spin-slow { animation: spin 3s linear infinite; }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in-up { animation: fadeInUp 0.6s ease-out; }
-        
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            padding: 16px 24px;
-            border-radius: 12px;
-            font-weight: 600;
-            transform: translateX(400px);
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        .notification.success {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-        }
-        
-        .notification.error {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            color: white;
-            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="min-h-screen bg-white">
+<body>
     <!-- Top Contact Bar -->
-    <div class="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 text-white py-3 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-        <div class="relative max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm">
-            <div class="flex items-center space-x-6">
-                <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1">
-                    <svg class="w-4 h-4 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                    <span class="font-medium">sunshineindustries99@gmail.com</span>
+    <div class="top-contact-bar">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="icon">✉</span>
+                    <span>sunshineindustries99@gmail.com</span>
                 </div>
-            </div>
-            <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1">
-                <svg class="w-4 h-4 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                <span class="font-medium">Gondia, Maharashtra</span>
+                <div class="contact-item">
+                    <span class="icon">📍</span>
+                    <span>Gondia, Maharashtra</span>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Main Header -->
-    <header id="main-header" class="fixed w-full z-50 transition-all duration-500 bg-white/90 backdrop-blur-lg py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center">
-                <!-- Company Name -->
-                <div class="flex items-center group cursor-pointer" onclick="scrollToSection('home')">
-                    <div class="relative">
-                        <h1 class="text-4xl lg:text-5xl font-black bg-gradient-to-r from-slate-800 via-blue-900 to-indigo-900 bg-clip-text text-transparent tracking-tight group-hover:scale-105 transition-transform duration-300">
-                            SUNSHINE
-                        </h1>
-                        <div class="flex items-center space-x-2">
-                            <p class="text-xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent tracking-wider group-hover:from-orange-400 group-hover:to-pink-500 transition-all duration-300">
-                                INDUSTRIES
-                            </p>
-                            <div class="flex space-x-1">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-400 to-red-500 rounded-full animate-pulse"></div>
-                                <svg class="w-4 h-4 text-yellow-500 animate-spin group-hover:text-orange-500 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Company Logo/Name -->
+                <div class="logo">
+                    <h1>SUNSHINE</h1>
+                    <p>INDUSTRIES</p>
                 </div>
 
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-1">
-                    <button onclick="scrollToSection('home')" class="relative px-6 py-3 text-gray-700 hover:text-white font-semibold transition-all duration-300 rounded-xl group overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl"></div>
-                        <span class="relative z-10">Home</span>
-                    </button>
-                    <button onclick="scrollToSection('about')" class="relative px-6 py-3 text-gray-700 hover:text-white font-semibold transition-all duration-300 rounded-xl group overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl"></div>
-                        <span class="relative z-10">About</span>
-                    </button>
-                    <button onclick="scrollToSection('products')" class="relative px-6 py-3 text-gray-700 hover:text-white font-semibold transition-all duration-300 rounded-xl group overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl"></div>
-                        <span class="relative z-10">Products</span>
-                    </button>
-                    <button onclick="scrollToSection('infrastructure')" class="relative px-6 py-3 text-gray-700 hover:text-white font-semibold transition-all duration-300 rounded-xl group overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl"></div>
-                        <span class="relative z-10">Infrastructure</span>
-                    </button>
-                    <button onclick="scrollToSection('contact')" class="relative px-6 py-3 text-gray-700 hover:text-white font-semibold transition-all duration-300 rounded-xl group overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl"></div>
-                        <span class="relative z-10">Contact</span>
-                    </button>
+                <!-- Navigation Menu -->
+                <nav class="nav-menu">
+                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                    <label for="menu-toggle" class="menu-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <ul class="nav-list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#infrastructure">Infrastructure</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
                 </nav>
 
                 <!-- CTA Button -->
-                <div class="hidden md:block">
-                    <button onclick="scrollToSection('contact')" class="relative group overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white px-8 py-4 rounded-2xl font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <span class="relative z-10 flex items-center">
-                            Get Quote
-                            <svg class="w-4 h-4 ml-2 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                            </svg>
-                        </span>
-                    </button>
+                <div class="cta-button">
+                    <a href="#contact" class="btn-primary">Get Quote</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden p-3 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-2xl">
-            <div class="px-4 py-6 space-y-3">
-                <button onclick="scrollToSection('home'); toggleMobileMenu();" class="block w-full text-left px-6 py-4 text-gray-700 hover:text-white font-semibold rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 hover:shadow-lg transform hover:scale-105">
-                    Home
-                </button>
-                <button onclick="scrollToSection('about'); toggleMobileMenu();" class="block w-full text-left px-6 py-4 text-gray-700 hover:text-white font-semibold rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 hover:shadow-lg transform hover:scale-105">
-                    About
-                </button>
-                <button onclick="scrollToSection('products'); toggleMobileMenu();" class="block w-full text-left px-6 py-4 text-gray-700 hover:text-white font-semibold rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 hover:shadow-lg transform hover:scale-105">
-                    Products
-                </button>
-                <button onclick="scrollToSection('infrastructure'); toggleMobileMenu();" class="block w-full text-left px-6 py-4 text-gray-700 hover:text-white font-semibold rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 hover:shadow-lg transform hover:scale-105">
-                    Infrastructure
-                </button>
-                <button onclick="scrollToSection('contact'); toggleMobileMenu();" class="block w-full text-left px-6 py-4 text-gray-700 hover:text-white font-semibold rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 hover:shadow-lg transform hover:scale-105">
-                    Contact
-                </button>
-                <button onclick="scrollToSection('contact'); toggleMobileMenu();" class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-4 rounded-xl font-bold mt-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
-                    Get Quote
-                    <svg class="w-4 h-4 ml-2 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                    </svg>
-                </button>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Enhanced Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900"></div>
-        <div class="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-red-500/10 to-pink-500/20"></div>
-        
-        <!-- Animated background elements -->
-        <div class="absolute inset-0">
-            <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-orange-400/30 to-pink-500/30 rounded-full blur-xl animate-pulse"></div>
-            <div class="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-r from-blue-400/20 to-purple-500/20 rounded-full blur-xl animate-pulse-slow"></div>
-            <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 rounded-full blur-xl animate-pulse"></div>
-            <div class="absolute top-1/3 right-1/3 w-16 h-16 bg-gradient-to-r from-pink-400/30 to-red-500/30 rounded-full blur-xl animate-pulse"></div>
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Content -->
-                <div class="text-white space-y-8 fade-in-up">
-                    <div class="space-y-6">
-                        <div class="inline-flex items-center bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-full px-6 py-3 text-sm font-bold border border-orange-400/30">
-                            <svg class="w-5 h-5 mr-3 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                            </svg>
-                            <span class="bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
-                                ISO 9001:2015 Certified Excellence
-                            </span>
-                            <svg class="w-4 h-4 ml-3 text-yellow-400 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                            </svg>
-                        </div>
-                        
-                        <div class="relative">
-                            <h1 class="text-6xl lg:text-8xl font-black leading-tight">
-                                <span class="block bg-gradient-to-r from-white via-blue-100 to-indigo-200 bg-clip-text text-transparent">
-                                    SUNSHINE
-                                </span>
-                                <span class="block bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
-                                    INDUSTRIES
-                                </span>
-                            </h1>
-                            <div class="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full animate-bounce">
-                                <svg class="w-8 h-8 text-white p-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        
-                        <div class="relative">
-                            <h2 class="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200 mb-4">
-                                Premium Plastic Products
-                            </h2>
-                            <p class="text-xl text-blue-100 leading-relaxed max-w-2xl">
-                                Leading manufacturer of high-quality plastic household goods, furniture, and industrial products. 
-                                Combining innovation, sustainability, and excellence in every product we create.
-                            </p>
-                        </div>
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="certification-badge">
+                        <span class="badge-icon">✓</span>
+                        <span>ISO 9001:2015 Certified Excellence</span>
                     </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-main">SUNSHINE</span>
+                        <span class="title-sub">INDUSTRIES</span>
+                    </h1>
+                    
+                    <h2 class="hero-subtitle">Premium Plastic Products</h2>
+                    <p class="hero-description">
+                        Leading manufacturer of high-quality plastic household goods, furniture, and industrial products. 
+                        Combining innovation, sustainability, and excellence in every product we create.
+                    </p>
 
                     <!-- Dealership Information -->
-                    <div class="relative group">
-                        <div class="absolute inset-0 bg-gradient-to-r from-orange-500/30 to-red-500/30 rounded-3xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-                        <div class="relative bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-3xl p-8 border border-orange-400/30 hover:border-orange-400/50 transition-all duration-300">
-                            <div class="flex items-center mb-6">
-                                <div class="w-12 h-12 bg-gradient-to-r from-orange-400 to-red-500 rounded-2xl flex items-center justify-center mr-4">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white flex items-center">
-                                        Apply for Dealership
-                                        <svg class="w-6 h-6 ml-2 text-yellow-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                        </svg>
-                                    </h3>
-                                    <p class="text-orange-200 text-sm">Join our growing network</p>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <a href="tel:+919890953585" class="group/phone flex items-center justify-center bg-gradient-to-r from-white/20 to-white/10 hover:from-white/30 hover:to-white/20 text-white px-6 py-4 rounded-2xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-xl border border-white/20 hover:border-white/40">
-                                    <svg class="w-5 h-5 mr-3 group-hover/phone:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                    </svg>
-                                    <span class="text-lg">9890953585</span>
-                                </a>
-                                <a href="tel:+917498708181" class="group/phone flex items-center justify-center bg-gradient-to-r from-white/20 to-white/10 hover:from-white/30 hover:to-white/20 text-white px-6 py-4 rounded-2xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-xl border border-white/20 hover:border-white/40">
-                                    <svg class="w-5 h-5 mr-3 group-hover/phone:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                    </svg>
-                                    <span class="text-lg">7498708181</span>
-                                </a>
-                            </div>
+                    <div class="dealership-info">
+                        <h3>Apply for Dealership</h3>
+                        <div class="phone-numbers">
+                            <a href="tel:+919890953585" class="phone-link">9890953585</a>
+                            <a href="tel:+917498708181" class="phone-link">7498708181</a>
                         </div>
                     </div>
 
                     <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class="text-center group">
-                            <div class="relative">
-                                <div class="text-4xl font-black bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                                    25+
-                                </div>
-                                <svg class="absolute -top-2 -right-2 w-4 h-4 text-yellow-400 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                                </svg>
-                            </div>
-                            <div class="text-sm text-blue-200 font-semibold">Years Experience</div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Years Experience</div>
                         </div>
-                        <div class="text-center group">
-                            <div class="relative">
-                                <div class="text-4xl font-black bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                                    500+
-                                </div>
-                                <svg class="absolute -top-2 -right-2 w-4 h-4 text-yellow-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                                </svg>
-                            </div>
-                            <div class="text-sm text-blue-200 font-semibold">Products</div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Products</div>
                         </div>
-                        <div class="text-center group">
-                            <div class="relative">
-                                <div class="text-4xl font-black bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                                    100%
-                                </div>
-                                <svg class="absolute -top-2 -right-2 w-4 h-4 text-yellow-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                                </svg>
-                            </div>
-                            <div class="text-sm text-blue-200 font-semibold">Quality Assured</div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Quality Assured</div>
                         </div>
                     </div>
 
                     <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-6">
-                        <button onclick="scrollToSection('products')" class="group relative overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white px-10 py-5 rounded-2xl font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
-                            <div class="absolute inset-0 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <span class="relative z-10 flex items-center text-lg">
-                                Explore Products
-                                <svg class="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </span>
-                        </button>
-                        <button onclick="scrollToSection('contact')" class="group border-2 border-white/50 hover:border-white text-white hover:bg-white hover:text-slate-900 px-10 py-5 rounded-2xl font-bold transition-all duration-300 backdrop-blur-sm hover:shadow-xl transform hover:scale-105">
-                            <span class="flex items-center text-lg">
-                                Get Quote
-                                <svg class="w-5 h-5 ml-3 group-hover:animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                                </svg>
-                            </span>
-                        </button>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn-primary">Explore Products</a>
+                        <a href="#contact" class="btn-secondary">Get Quote</a>
                     </div>
                 </div>
 
                 <!-- Features Grid -->
-                <div class="grid grid-cols-2 gap-6 fade-in-up">
-                    <div class="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 hover:from-white/20 hover:to-white/10 transition-all duration-300 transform hover:scale-105 border border-white/20 hover:border-white/40">
-                        <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Advanced Manufacturing</h3>
-                        <p class="text-blue-100">State-of-the-art injection molding technology</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏭</div>
+                        <h3>Advanced Manufacturing</h3>
+                        <p>State-of-the-art injection molding technology</p>
                     </div>
-                    
-                    <div class="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 hover:from-white/20 hover:to-white/10 transition-all duration-300 transform hover:scale-105 border border-white/20 hover:border-white/40">
-                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Eco-Friendly</h3>
-                        <p class="text-blue-100">Sustainable materials and processes</p>
+                    <div class="feature-card">
+                        <div class="feature-icon">♻️</div>
+                        <h3>Eco-Friendly</h3>
+                        <p>Sustainable materials and processes</p>
                     </div>
-                    
-                    <div class="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 hover:from-white/20 hover:to-white/10 transition-all duration-300 transform hover:scale-105 border border-white/20 hover:border-white/40">
-                        <div class="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Quality Certified</h3>
-                        <p class="text-blue-100">ISO 9001:2015 certified processes</p>
+                    <div class="feature-card">
+                        <div class="feature-icon">✅</div>
+                        <h3>Quality Certified</h3>
+                        <p>ISO 9001:2015 certified processes</p>
                     </div>
-                    
-                    <div class="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 hover:from-white/20 hover:to-white/10 transition-all duration-300 transform hover:scale-105 border border-white/20 hover:border-white/40">
-                        <div class="w-16 h-16 bg-gradient-to-r from-pink-400 to-red-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Customer Focus</h3>
-                        <p class="text-blue-100">Dedicated to customer satisfaction</p>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Customer Focus</h3>
+                        <p>Dedicated to customer satisfaction</p>
                     </div>
                 </div>
             </div>
@@ -387,130 +142,60 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0">
-            <div class="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-orange-400/20 to-red-500/20 rounded-full blur-xl animate-pulse"></div>
-            <div class="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-r from-blue-400/20 to-purple-500/20 rounded-full blur-xl animate-pulse-slow"></div>
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center mb-20">
-                <div class="inline-flex items-center bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-full px-6 py-3 mb-6 border border-orange-400/30">
-                    <svg class="w-5 h-5 text-orange-500 mr-2 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                    </svg>
-                    <span class="font-bold text-orange-600">About Our Company</span>
-                </div>
-                <h2 class="text-5xl lg:text-6xl font-black mb-6">
-                    <span class="bg-gradient-to-r from-slate-800 via-blue-900 to-indigo-900 bg-clip-text text-transparent">
-                        SUNSHINE INDUSTRIES
-                    </span>
-                </h2>
-                <p class="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    Leading the plastic manufacturing industry with innovation, quality, and sustainability at our core
-                </p>
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">About Our Company</div>
+                <h2>SUNSHINE INDUSTRIES</h2>
+                <p>Leading the plastic manufacturing industry with innovation, quality, and sustainability at our core</p>
             </div>
 
-            <!-- Main Content -->
-            <div class="grid lg:grid-cols-2 gap-16 mb-20">
-                <div class="space-y-8">
-                    <div class="relative">
-                        <h3 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                            Who We Are
-                            <svg class="w-8 h-8 ml-3 text-yellow-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                            </svg>
-                        </h3>
-                    </div>
-                    <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
-                        <p>
-                            We are a leading manufacturer specializing in high-quality plastic products that cater to a diverse range of industries and applications. Whether it's enhancing the comfort and style of your home with our durable plastic household products and furniture, or providing reliable, high-performance solutions for industrial applications, we are committed to delivering products that offer both innovation and value.
-                        </p>
-                        <p>
-                            Our product portfolio includes everything from functional household essentials and stylish plastic furniture to robust industrial components designed to withstand the demands of commercial and manufacturing environments. Each item is crafted with precision, using sustainable materials and advanced manufacturing techniques.
-                        </p>
-                    </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who We Are</h3>
+                    <p>
+                        We are a leading manufacturer specializing in high-quality plastic products that cater to a diverse range of industries and applications. Whether it's enhancing the comfort and style of your home with our durable plastic household products and furniture, or providing reliable, high-performance solutions for industrial applications, we are committed to delivering products that offer both innovation and value.
+                    </p>
+                    <p>
+                        Our product portfolio includes everything from functional household essentials and stylish plastic furniture to robust industrial components designed to withstand the demands of commercial and manufacturing environments. Each item is crafted with precision, using sustainable materials and advanced manufacturing techniques.
+                    </p>
                     
                     <!-- Key Features -->
-                    <div class="grid grid-cols-2 gap-6 mt-10">
-                        <div class="group flex items-center space-x-4 bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                                </svg>
-                            </div>
-                            <span class="text-gray-800 font-semibold text-lg">ISO 9001:2015 Certified</span>
+                    <div class="key-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>ISO 9001:2015 Certified</span>
                         </div>
-                        
-                        <div class="group flex items-center space-x-4 bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
-                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                                </svg>
-                            </div>
-                            <span class="text-gray-800 font-semibold text-lg">Eco-Friendly Production</span>
+                        <div class="feature-item">
+                            <span class="feature-icon">♻️</span>
+                            <span>Eco-Friendly Production</span>
                         </div>
-                        
-                        <div class="group flex items-center space-x-4 bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
-                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <span class="text-gray-800 font-semibold text-lg">Advanced Technology</span>
+                        <div class="feature-item">
+                            <span class="feature-icon">⚡</span>
+                            <span>Advanced Technology</span>
                         </div>
-                        
-                        <div class="group flex items-center space-x-4 bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
-                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <span class="text-gray-800 font-semibold text-lg">Quality Assurance</span>
+                        <div class="feature-item">
+                            <span class="feature-icon">🛡️</span>
+                            <span>Quality Assurance</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="space-y-8">
+                <div class="about-cards">
                     <!-- Vision -->
-                    <div class="group bg-gradient-to-br from-white to-blue-50 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-100">
-                        <div class="flex items-center mb-6">
-                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-3xl font-bold text-gray-900">Our Vision</h3>
-                                <svg class="w-6 h-6 text-blue-500 animate-pulse mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 leading-relaxed text-lg">
+                    <div class="about-card vision">
+                        <div class="card-icon">👁️</div>
+                        <h3>Our Vision</h3>
+                        <p>
                             To be the leading manufacturer of sustainable, high-quality plastic consumer goods that enhance daily living, while reducing environmental impact through innovation and responsible production practices.
                         </p>
                     </div>
 
                     <!-- Mission -->
-                    <div class="group bg-gradient-to-br from-white to-orange-50 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 border border-orange-100">
-                        <div class="flex items-center mb-6">
-                            <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-3xl font-bold text-gray-900">Our Mission</h3>
-                                <svg class="w-6 h-6 text-orange-500 animate-spin mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 leading-relaxed text-lg">
+                    <div class="about-card mission">
+                        <div class="card-icon">🎯</div>
+                        <h3>Our Mission</h3>
+                        <p>
                             Our mission is to design and manufacture plastic consumer products that combine functionality, aesthetics, sustainability and affordability. We strive to exceed customer expectations through efficient production, consistent quality, and a commitment to continuous improvement.
                         </p>
                     </div>
@@ -518,430 +203,191 @@
             </div>
 
             <!-- Values -->
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="group text-center">
-                    <div class="relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 border border-gray-200">
-                        <div class="absolute top-6 right-6">
-                            <svg class="w-6 h-6 text-yellow-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                            </svg>
-                        </div>
-                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Quality Excellence</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed">Committed to delivering products that meet the highest industry standards with rigorous quality control.</p>
-                    </div>
+            <div class="values">
+                <div class="value-card">
+                    <div class="value-icon">✅</div>
+                    <h3>Quality Excellence</h3>
+                    <p>Committed to delivering products that meet the highest industry standards with rigorous quality control.</p>
                 </div>
-                
-                <div class="group text-center">
-                    <div class="relative bg-gradient-to-br from-green-50 to-green-100 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 border border-gray-200">
-                        <div class="absolute top-6 right-6">
-                            <svg class="w-6 h-6 text-yellow-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                            </svg>
-                        </div>
-                        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Sustainability</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed">Dedicated to eco-friendly practices and reducing environmental impact through responsible manufacturing.</p>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Sustainability</h3>
+                    <p>Dedicated to eco-friendly practices and reducing environmental impact through responsible manufacturing.</p>
                 </div>
-                
-                <div class="group text-center">
-                    <div class="relative bg-gradient-to-br from-orange-50 to-orange-100 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 border border-gray-200">
-                        <div class="absolute top-6 right-6">
-                            <svg class="w-6 h-6 text-yellow-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                            </svg>
-                        </div>
-                        <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Customer Focus</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed">Putting customer satisfaction at the heart of everything we do with personalized service and support.</p>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon">👥</div>
+                    <h3>Customer Focus</h3>
+                    <p>Putting customer satisfaction at the heart of everything we do with personalized service and support.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Product Range</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Comprehensive collection of high-quality plastic products for household, industrial, and commercial applications
-                </p>
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Product Range</h2>
+                <p>Comprehensive collection of high-quality plastic products for household, industrial, and commercial applications</p>
             </div>
 
             <!-- Product Image Slider -->
-            <div class="mb-20">
-                <div class="relative max-w-6xl mx-auto">
-                    <div class="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-100 to-gray-200">
-                        <div id="product-slider" class="flex transition-transform duration-700 ease-in-out h-full">
-                            <div class="product-slide w-full h-full flex-shrink-0 relative group">
-                                <img src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Household Products Collection" class="w-full h-full object-contain bg-white p-8 cursor-pointer transition-transform duration-300 group-hover:scale-105" loading="lazy">
-                                
-                                <!-- Image Overlay -->
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
-                                    <h3 class="text-2xl font-bold text-white mb-2">Household Products Collection</h3>
-                                    <p class="text-gray-200 text-lg">Mugs, Soapdishes, Dustpans, and Essential Items</p>
-                                </div>
-                            </div>
-                            
-                            <div class="product-slide w-full h-full flex-shrink-0 relative group">
-                                <img src="https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Buckets and Storage Solutions" class="w-full h-full object-contain bg-white p-8 cursor-pointer transition-transform duration-300 group-hover:scale-105" loading="lazy">
-                                
-                                <!-- Image Overlay -->
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
-                                    <h3 class="text-2xl font-bold text-white mb-2">Buckets and Storage Solutions</h3>
-                                    <p class="text-gray-200 text-lg">Spiral Buckets, Nova Buckets, Basin Tubs, and Variety Tubs</p>
-                                </div>
-                            </div>
-                            
-                            <div class="product-slide w-full h-full flex-shrink-0 relative group">
-                                <img src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Industrial and Furniture Products" class="w-full h-full object-contain bg-white p-8 cursor-pointer transition-transform duration-300 group-hover:scale-105" loading="lazy">
-                                
-                                <!-- Image Overlay -->
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
-                                    <h3 class="text-2xl font-bold text-white mb-2">Industrial and Furniture Products</h3>
-                                    <p class="text-gray-200 text-lg">Plastic Chairs, Industrial Pallets, and Storage Crates</p>
-                                </div>
-                            </div>
-                            
-                            <div class="product-slide w-full h-full flex-shrink-0 relative group">
-                                <img src="https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Waste Management Solutions" class="w-full h-full object-contain bg-white p-8 cursor-pointer transition-transform duration-300 group-hover:scale-105" loading="lazy">
-                                
-                                <!-- Image Overlay -->
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
-                                    <h3 class="text-2xl font-bold text-white mb-2">Waste Management Solutions</h3>
-                                    <p class="text-gray-200 text-lg">Dustbins, Garbage Containers, and Waste Management Systems</p>
-                                </div>
+            <div class="product-slider">
+                <div class="slider-container">
+                    <input type="radio" name="slide" id="slide1" checked>
+                    <input type="radio" name="slide" id="slide2">
+                    <input type="radio" name="slide" id="slide3">
+                    <input type="radio" name="slide" id="slide4">
+                    
+                    <div class="slides">
+                        <div class="slide">
+                            <img src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Household Products Collection">
+                            <div class="slide-content">
+                                <h3>Household Products Collection</h3>
+                                <p>Mugs, Soapdishes, Dustpans, and Essential Items</p>
                             </div>
                         </div>
-
-                        <!-- Navigation Buttons -->
-                        <button onclick="prevSlide()" class="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 p-4 rounded-full transition-all duration-200 hover:scale-110 shadow-lg">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                            </svg>
-                        </button>
-                        <button onclick="nextSlide()" class="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 p-4 rounded-full transition-all duration-200 hover:scale-110 shadow-lg">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-
-                        <!-- Slide Indicators -->
-                        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-                            <button onclick="showSlide(0)" class="slide-indicator w-4 h-4 rounded-full transition-all duration-300 bg-white scale-125 shadow-lg"></button>
-                            <button onclick="showSlide(1)" class="slide-indicator w-4 h-4 rounded-full transition-all duration-300 bg-white/50 hover:bg-white/75 hover:scale-110"></button>
-                            <button onclick="showSlide(2)" class="slide-indicator w-4 h-4 rounded-full transition-all duration-300 bg-white/50 hover:bg-white/75 hover:scale-110"></button>
-                            <button onclick="showSlide(3)" class="slide-indicator w-4 h-4 rounded-full transition-all duration-300 bg-white/50 hover:bg-white/75 hover:scale-110"></button>
+                        <div class="slide">
+                            <img src="https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Buckets and Storage Solutions">
+                            <div class="slide-content">
+                                <h3>Buckets and Storage Solutions</h3>
+                                <p>Spiral Buckets, Nova Buckets, Basin Tubs, and Variety Tubs</p>
+                            </div>
                         </div>
+                        <div class="slide">
+                            <img src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Industrial and Furniture Products">
+                            <div class="slide-content">
+                                <h3>Industrial and Furniture Products</h3>
+                                <p>Plastic Chairs, Industrial Pallets, and Storage Crates</p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Waste Management Solutions">
+                            <div class="slide-content">
+                                <h3>Waste Management Solutions</h3>
+                                <p>Dustbins, Garbage Containers, and Waste Management Systems</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation">
+                        <label for="slide1" class="nav-btn"></label>
+                        <label for="slide2" class="nav-btn"></label>
+                        <label for="slide3" class="nav-btn"></label>
+                        <label for="slide4" class="nav-btn"></label>
                     </div>
                 </div>
             </div>
 
             <!-- Product Categories -->
-            <div class="grid md:grid-cols-2 gap-8 mb-16">
-                <div class="group bg-blue-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-                            </svg>
-                        </div>
+            <div class="product-categories">
+                <div class="category-card household">
+                    <div class="category-header">
+                        <div class="category-icon">🏠</div>
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Household Products</h3>
-                            <p class="text-gray-600">Essential items for daily use</p>
+                            <h3>Household Products</h3>
+                            <p>Essential items for daily use</p>
                         </div>
                     </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-3">
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Mugs (1 ltr & 1.5 ltr)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Soapdishes</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Dustpans</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Spiral Buckets (7-22 ltr)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Nova Buckets (9-22 ltr)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Basin Tubs (16-22 ltr)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Variety of Tubs</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Shaktimaan Ghamelas (16-24 inches)</span>
-                            </div>
-                        </div>
+                    <div class="category-items">
+                        <div class="item">Mugs (1 ltr & 1.5 ltr)</div>
+                        <div class="item">Soapdishes</div>
+                        <div class="item">Dustpans</div>
+                        <div class="item">Spiral Buckets (7-22 ltr)</div>
+                        <div class="item">Nova Buckets (9-22 ltr)</div>
+                        <div class="item">Basin Tubs (16-22 ltr)</div>
+                        <div class="item">Variety of Tubs</div>
+                        <div class="item">Shaktimaan Ghamelas (16-24 inches)</div>
                     </div>
                 </div>
-                
-                <div class="group bg-green-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                            </svg>
-                        </div>
+
+                <div class="category-card furniture">
+                    <div class="category-header">
+                        <div class="category-icon">🪑</div>
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Furniture</h3>
-                            <p class="text-gray-600">Durable and stylish plastic furniture</p>
+                            <h3>Furniture</h3>
+                            <p>Durable and stylish plastic furniture</p>
                         </div>
                     </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-3">
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Plastic Chairs (Various Designs)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Dining Sets</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Garden Furniture</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Office Chairs</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Tables (Multiple Sizes)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Stools and Seating Solutions</span>
-                            </div>
-                        </div>
+                    <div class="category-items">
+                        <div class="item">Plastic Chairs (Various Designs)</div>
+                        <div class="item">Dining Sets</div>
+                        <div class="item">Garden Furniture</div>
+                        <div class="item">Office Chairs</div>
+                        <div class="item">Tables (Multiple Sizes)</div>
+                        <div class="item">Stools and Seating Solutions</div>
                     </div>
                 </div>
-                
-                <div class="group bg-orange-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                            </svg>
-                        </div>
+
+                <div class="category-card industrial">
+                    <div class="category-header">
+                        <div class="category-icon">🏭</div>
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Industrial Products</h3>
-                            <p class="text-gray-600">Heavy-duty solutions for commercial use</p>
+                            <h3>Industrial Products</h3>
+                            <p>Heavy-duty solutions for commercial use</p>
                         </div>
                     </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-3">
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Industrial Pallets</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Storage Crates (Multiple Sizes)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Material Handling Equipment</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Industrial Containers</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Warehouse Solutions</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Heavy-Duty Storage Systems</span>
-                            </div>
-                        </div>
+                    <div class="category-items">
+                        <div class="item">Industrial Pallets</div>
+                        <div class="item">Storage Crates (Multiple Sizes)</div>
+                        <div class="item">Material Handling Equipment</div>
+                        <div class="item">Industrial Containers</div>
+                        <div class="item">Warehouse Solutions</div>
+                        <div class="item">Heavy-Duty Storage Systems</div>
                     </div>
                 </div>
-                
-                <div class="group bg-purple-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                            </svg>
-                        </div>
+
+                <div class="category-card waste">
+                    <div class="category-header">
+                        <div class="category-icon">🗑️</div>
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Waste Management</h3>
-                            <p class="text-gray-600">Complete waste management solutions</p>
+                            <h3>Waste Management</h3>
+                            <p>Complete waste management solutions</p>
                         </div>
                     </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-3">
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Swachh Bharat Waste Containers (10-12 ltr)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Swing Bins (10-60 ltr)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Roadside Swing Bins with Stand (60-110 ltr)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Dome Shaped Bins</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Wheeled Waste Bins (12-240 ltr)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Garbage Rickshaws</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Large Garbage Containers (450-1100 ltr)</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Bio-Medical Waste Bins</span>
-                            </div>
-                        </div>
+                    <div class="category-items">
+                        <div class="item">Swachh Bharat Waste Containers (10-12 ltr)</div>
+                        <div class="item">Swing Bins (10-60 ltr)</div>
+                        <div class="item">Roadside Swing Bins with Stand (60-110 ltr)</div>
+                        <div class="item">Dome Shaped Bins</div>
+                        <div class="item">Wheeled Waste Bins (12-240 ltr)</div>
+                        <div class="item">Garbage Rickshaws</div>
+                        <div class="item">Large Garbage Containers (450-1100 ltr)</div>
+                        <div class="item">Bio-Medical Waste Bins</div>
                     </div>
                 </div>
             </div>
 
             <!-- CTA Section -->
-            <div class="text-center">
-                <div class="bg-gradient-to-r from-blue-900 via-blue-800 to-orange-600 rounded-3xl p-12 text-white relative overflow-hidden">
-                    <!-- Background Pattern -->
-                    <div class="absolute inset-0 opacity-10">
-                        <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-xl"></div>
-                        <div class="absolute bottom-10 right-10 w-48 h-48 bg-orange-400 rounded-full blur-xl"></div>
-                    </div>
-                    
-                    <div class="relative z-10">
-                        <h3 class="text-4xl font-bold mb-4">Need Custom Solutions?</h3>
-                        <p class="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-                            We offer customized plastic products tailored to your specific requirements with our advanced manufacturing capabilities
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button onclick="scrollToSection('contact')" class="bg-white text-blue-900 px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center">
-                                Request Custom Quote
-                            </button>
-                            <button onclick="scrollToSection('infrastructure')" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-200">
-                                View Our Facility
-                            </button>
-                        </div>
-                    </div>
+            <div class="products-cta">
+                <h3>Need Custom Solutions?</h3>
+                <p>We offer customized plastic products tailored to your specific requirements with our advanced manufacturing capabilities</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-primary">Request Custom Quote</a>
+                    <a href="#infrastructure" class="btn-secondary">View Our Facility</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Infrastructure Section -->
-    <section id="infrastructure" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Factory & Infrastructure</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Our state-of-the-art manufacturing facility combines cutting-edge technology with sustainable practices
-                </p>
+    <section id="infrastructure" class="infrastructure">
+        <div class="container">
+            <div class="section-header">
+                <h2>Factory & Infrastructure</h2>
+                <p>Our state-of-the-art manufacturing facility combines cutting-edge technology with sustainable practices</p>
             </div>
 
-            <!-- Main Content -->
-            <div class="grid lg:grid-cols-2 gap-12 mb-16">
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-bold text-gray-900">Manufacturing Excellence</h3>
-                    <p class="text-gray-600 leading-relaxed">
+            <div class="infrastructure-content">
+                <div class="infrastructure-text">
+                    <h3>Manufacturing Excellence</h3>
+                    <p>
                         Our state-of-the-art manufacturing facility is equipped with the latest injection molding technology, 
                         enabling us to produce a wide variety of plastic products that meet the highest industry standards. 
                         With a dedicated focus on quality, efficiency, and sustainability, our infrastructure supports the 
                         production of plastic household goods, stylish furniture, and durable industrial products — all under one roof.
                     </p>
-                    <p class="text-gray-600 leading-relaxed">
+                    <p>
                         Our facility is home to a diverse range of precision injection molding machines, allowing us to create 
                         complex and intricate designs with consistent accuracy and high output. These machines are operated by 
                         a skilled team of technicians and engineers who ensure that each product is manufactured to exacting 
@@ -949,691 +395,344 @@
                     </p>
                     
                     <!-- Key Stats -->
-                    <div class="grid grid-cols-2 gap-6 mt-8">
-                        <div class="bg-white rounded-xl p-6 shadow-lg">
-                            <div class="text-3xl font-bold text-blue-600 mb-2">25+</div>
-                            <div class="text-gray-700">Injection Molding Machines</div>
+                    <div class="infrastructure-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Injection Molding Machines</div>
                         </div>
-                        <div class="bg-white rounded-xl p-6 shadow-lg">
-                            <div class="text-3xl font-bold text-green-600 mb-2">50,000</div>
-                            <div class="text-gray-700">Sq. Ft. Facility</div>
+                        <div class="stat-card">
+                            <div class="stat-number">50,000</div>
+                            <div class="stat-label">Sq. Ft. Facility</div>
                         </div>
-                        <div class="bg-white rounded-xl p-6 shadow-lg">
-                            <div class="text-3xl font-bold text-orange-600 mb-2">100+</div>
-                            <div class="text-gray-700">Skilled Workers</div>
+                        <div class="stat-card">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Skilled Workers</div>
                         </div>
-                        <div class="bg-white rounded-xl p-6 shadow-lg">
-                            <div class="text-3xl font-bold text-purple-600 mb-2">24/7</div>
-                            <div class="text-gray-700">Production Capacity</div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Production Capacity</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="space-y-6">
-                    <div class="bg-gradient-to-br from-blue-900 to-orange-600 rounded-2xl p-8 text-white">
-                        <h3 class="text-2xl font-bold mb-4">Quality Assurance</h3>
-                        <p class="text-blue-100 mb-6">
+                <div class="infrastructure-cards">
+                    <div class="info-card quality">
+                        <h3>Quality Assurance</h3>
+                        <p>
                             With robust quality control systems in place, our factory ensures that each plastic product, 
                             whether it's for the home, office, or industrial use, undergoes rigorous testing at CIPET Labs 
                             to meet customer expectations.
                         </p>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-orange-400 rounded-full mr-3"></div>
-                                <span>CIPET Lab Testing</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-orange-400 rounded-full mr-3"></div>
-                                <span>ISO 9001:2015 Certified</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-orange-400 rounded-full mr-3"></div>
-                                <span>100% Quality Inspection</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-orange-400 rounded-full mr-3"></div>
-                                <span>Advanced Testing Equipment</span>
-                            </div>
-                        </div>
+                        <ul>
+                            <li>CIPET Lab Testing</li>
+                            <li>ISO 9001:2015 Certified</li>
+                            <li>100% Quality Inspection</li>
+                            <li>Advanced Testing Equipment</li>
+                        </ul>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-8 shadow-lg">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Sustainability Focus</h3>
-                        <p class="text-gray-600 mb-6">
+                    <div class="info-card sustainability">
+                        <h3>Sustainability Focus</h3>
+                        <p>
                             We prioritize sustainable practices in every phase of production, incorporating recyclable 
                             materials and optimizing energy efficiency throughout the facility.
                         </p>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                                <span class="text-gray-700">Recyclable Materials</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                                <span class="text-gray-700">Energy Efficient Processes</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                                <span class="text-gray-700">Waste Management Systems</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                                <span class="text-gray-700">Environmental Compliance</span>
-                            </div>
-                        </div>
+                        <ul>
+                            <li>Recyclable Materials</li>
+                            <li>Energy Efficient Processes</li>
+                            <li>Waste Management Systems</li>
+                            <li>Environmental Compliance</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <!-- Features Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                        </svg>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">State-of-the-Art Facility</h3>
-                    <p class="text-gray-600">Modern manufacturing facility equipped with latest injection molding technology</p>
+            <div class="infrastructure-features">
+                <div class="feature-item">
+                    <div class="feature-icon">🏭</div>
+                    <h3>State-of-the-Art Facility</h3>
+                    <p>Modern manufacturing facility equipped with latest injection molding technology</p>
                 </div>
-                
-                <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                        </svg>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Advanced Machinery</h3>
-                    <p class="text-gray-600">Precision injection molding machines for complex and intricate designs</p>
+                <div class="feature-item">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Advanced Machinery</h3>
+                    <p>Precision injection molding machines for complex and intricate designs</p>
                 </div>
-                
-                <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Quality Control</h3>
-                    <p class="text-gray-600">Rigorous testing at CIPET Labs ensuring highest quality standards</p>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Quality Control</h3>
+                    <p>Rigorous testing at CIPET Labs ensuring highest quality standards</p>
                 </div>
-                
-                <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                        </svg>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Sustainable Practices</h3>
-                    <p class="text-gray-600">Eco-conscious production with advanced waste management systems</p>
+                <div class="feature-item">
+                    <div class="feature-icon">♻️</div>
+                    <h3>Sustainable Practices</h3>
+                    <p>Eco-conscious production with advanced waste management systems</p>
                 </div>
-                
-                <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                        </svg>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Skilled Team</h3>
-                    <p class="text-gray-600">Expert technicians and engineers ensuring precision manufacturing</p>
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <h3>Skilled Team</h3>
+                    <p>Expert technicians and engineers ensuring precision manufacturing</p>
                 </div>
-                
-                <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                        </svg>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">ISO Certified</h3>
-                    <p class="text-gray-600">ISO 9001:2015 certified processes maintaining international standards</p>
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <h3>ISO Certified</h3>
+                    <p>ISO 9001:2015 certified processes maintaining international standards</p>
                 </div>
             </div>
 
             <!-- Location Info -->
-            <div class="mt-16 bg-white rounded-2xl p-8 shadow-lg">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Head Office & Factory</h3>
-                        <p class="text-gray-600 mb-2">M/s. Sunshine Industries</p>
-                        <p class="text-gray-600 mb-2">Plot No. B-7, MIDC</p>
-                        <p class="text-gray-600 mb-2">Mundipar</p>
-                        <p class="text-gray-600">GONDIA, Maharashtra - 441614</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Branch Office - Raipur</h3>
-                        <p class="text-gray-600 mb-2">Chandra Complex, Hotel Capital</p>
-                        <p class="text-gray-600 mb-2">Near HDFC Bank, Fafadih Chowk</p>
-                        <p class="text-gray-600">Raipur, Chhattisgarh - 492001</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Branch Office - Nagpur</h3>
-                        <p class="text-gray-600">Nagpur, Maharashtra</p>
-                    </div>
+            <div class="location-info">
+                <div class="location-card">
+                    <h3>Head Office & Factory</h3>
+                    <p>M/s. Sunshine Industries</p>
+                    <p>Plot No. B-7, MIDC</p>
+                    <p>Mundipar</p>
+                    <p>GONDIA, Maharashtra - 441614</p>
+                </div>
+                <div class="location-card">
+                    <h3>Branch Office - Raipur</h3>
+                    <p>Chandra Complex, Hotel Capital</p>
+                    <p>Near HDFC Bank, Fafadih Chowk</p>
+                    <p>Raipur, Chhattisgarh - 492001</p>
+                </div>
+                <div class="location-card">
+                    <h3>Branch Office - Nagpur</h3>
+                    <p>Nagpur, Maharashtra</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Get in touch with us for quotes, inquiries, or to discuss your plastic product requirements
-                </p>
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for quotes, inquiries, or to discuss your plastic product requirements</p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12">
+            <div class="contact-content">
                 <!-- Contact Information -->
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h3>
-                        <p class="text-gray-600 mb-8">
-                            We're here to help you with all your plastic product needs. Reach out to us through any of the following channels:
-                        </p>
-                    </div>
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>
+                        We're here to help you with all your plastic product needs. Reach out to us through any of the following channels:
+                    </p>
 
                     <!-- Contact Cards -->
-                    <div class="space-y-6">
-                        <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Phone Numbers</h4>
-                                    <p class="text-gray-600 mb-1">+91-9371636220</p>
-                                    <p class="text-gray-600 mb-1">+91-9890953585</p>
-                                </div>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Phone Numbers</h4>
+                                <p>+91-9371636220</p>
+                                <p>+91-9890953585</p>
                             </div>
                         </div>
                         
-                        <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Email Addresses</h4>
-                                    <p class="text-gray-600 mb-1">sunshineindustries99@gmail.com</p>
-                                    <p class="text-gray-600 mb-1">ranjeetsingh.gulati@gmail.com</p>
-                                </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email Addresses</h4>
+                                <p>sunshineindustries99@gmail.com</p>
+                                <p>ranjeetsingh.gulati@gmail.com</p>
                             </div>
                         </div>
                         
-                        <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Website</h4>
-                                    <p class="text-gray-600 mb-1">www.shineplastindia.com</p>
-                                </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">🌐</div>
+                            <div>
+                                <h4>Website</h4>
+                                <p>www.shineplastindia.com</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Office Locations -->
-                    <div class="bg-gradient-to-br from-blue-900 to-orange-600 rounded-2xl p-8 text-white">
-                        <h4 class="text-xl font-bold mb-6">Our Locations</h4>
+                    <div class="office-locations">
+                        <h4>Our Locations</h4>
                         
-                        <div class="space-y-6">
+                        <div class="location">
+                            <div class="location-icon">📍</div>
                             <div>
-                                <div class="flex items-center mb-2">
-                                    <svg class="w-5 h-5 mr-2 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    <span class="font-semibold">Head Office</span>
-                                </div>
-                                <p class="text-blue-100 ml-7">
+                                <strong>Head Office</strong>
+                                <p>
                                     Plot No. B-7, MIDC, Mundipar<br>
                                     GONDIA, Maharashtra - 441614
                                 </p>
                             </div>
-                            
+                        </div>
+                        
+                        <div class="location">
+                            <div class="location-icon">📍</div>
                             <div>
-                                <div class="flex items-center mb-2">
-                                    <svg class="w-5 h-5 mr-2 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    <span class="font-semibold">Branch Office - Raipur</span>
-                                </div>
-                                <p class="text-blue-100 ml-7">
+                                <strong>Branch Office - Raipur</strong>
+                                <p>
                                     Chandra Complex, Hotel Capital<br>
                                     Near HDFC Bank, Fafadih Chowk<br>
                                     Raipur, Chhattisgarh - 492001
                                 </p>
                             </div>
+                        </div>
 
+                        <div class="location">
+                            <div class="location-icon">📍</div>
                             <div>
-                                <div class="flex items-center mb-2">
-                                    <svg class="w-5 h-5 mr-2 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    <span class="font-semibold">Branch Office - Nagpur</span>
-                                </div>
-                                <p class="text-blue-100 ml-7">
-                                    Nagpur, Maharashtra
-                                </p>
+                                <strong>Branch Office - Nagpur</strong>
+                                <p>Nagpur, Maharashtra</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Business Hours -->
-                    <div class="bg-gray-50 rounded-2xl p-6">
-                        <div class="flex items-center mb-4">
-                            <svg class="w-6 h-6 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <h4 class="text-lg font-semibold text-gray-900">Business Hours</h4>
-                        </div>
-                        <div class="space-y-2 text-gray-600">
-                            <div class="flex justify-between">
-                                <span>Monday - Friday:</span>
-                                <span>9:00 AM - 6:00 PM</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Saturday:</span>
-                                
-                                <span>9:00 AM - 2:00 PM</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Sunday:</span>
-                                <span>Closed</span>
+                    <div class="business-hours">
+                        <div class="hours-icon">🕒</div>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <div class="hours-list">
+                                <div class="hours-item">
+                                    <span>Monday - Friday:</span>
+                                    <span>9:00 AM - 6:00 PM</span>
+                                </div>
+                                <div class="hours-item">
+                                    <span>Saturday:</span>
+                                    <span>9:00 AM - 2:00 PM</span>
+                                </div>
+                                <div class="hours-item">
+                                    <span>Sunday:</span>
+                                    <span>Closed</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="bg-gray-50 rounded-2xl p-8">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+                <!-- Contact Message -->
+                <div class="contact-message">
+                    <h3>Ready to Connect?</h3>
+                    <p>
+                        We'd love to hear from you! Whether you're looking for specific products, need a custom quote, 
+                        or want to discuss dealership opportunities, our team is ready to assist you.
+                    </p>
+                    <p>
+                        Please use any of the contact methods provided to reach out to us. Our experienced team will 
+                        respond promptly to help you find the perfect plastic solutions for your needs.
+                    </p>
                     
-                    <form id="contact-form" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Full Name *
-                                </label>
-                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Your full name">
-                            </div>
-                            
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Email Address *
-                                </label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="your.email@example.com">
-                            </div>
+                    <div class="contact-highlights">
+                        <div class="highlight">
+                            <span class="highlight-icon">⚡</span>
+                            <span>Quick Response Time</span>
                         </div>
-
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Phone Number
-                                </label>
-                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="+91-XXXXXXXXXX">
-                            </div>
-                            
-                            <div>
-                                <label for="company" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Company Name
-                                </label>
-                                <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Your company name">
-                            </div>
+                        <div class="highlight">
+                            <span class="highlight-icon">💼</span>
+                            <span>Professional Service</span>
                         </div>
-
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
-                                Message *
-                            </label>
-                            <textarea id="message" name="message" required rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none" placeholder="Tell us about your requirements, quantity needed, or any questions you have..."></textarea>
+                        <div class="highlight">
+                            <span class="highlight-icon">🎯</span>
+                            <span>Custom Solutions</span>
                         </div>
+                        <div class="highlight">
+                            <span class="highlight-icon">🤝</span>
+                            <span>Partnership Opportunities</span>
+                        </div>
+                    </div>
 
-                        <button id="submit-btn" type="submit" class="w-full bg-gradient-to-r from-blue-600 to-orange-600 text-white py-4 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-200 hover:shadow-lg transform hover:scale-105">
-                            <div id="submit-spinner" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                            </svg>
-                            <span id="submit-text">Send Message</span>
-                        </button>
-                    </form>
+                    <div class="contact-cta">
+                        <a href="tel:+919371636220" class="btn-primary">Call Now</a>
+                        <a href="mailto:sunshineindustries99@gmail.com" class="btn-secondary">Send Email</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0">
-            <div class="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full blur-xl animate-pulse"></div>
-            <div class="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-xl animate-pulse-slow"></div>
-            <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-r from-pink-500/20 to-orange-500/20 rounded-full blur-xl animate-pulse"></div>
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
                 <!-- Company Info -->
-                <div class="space-y-8">
-                    <div class="group">
-                        <div class="relative">
-                            <h3 class="text-4xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent tracking-tight group-hover:scale-105 transition-transform duration-300">
-                                SUNSHINE
-                            </h3>
-                            <div class="flex items-center space-x-2">
-                                <p class="text-xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide group-hover:from-orange-300 group-hover:to-pink-400 transition-all duration-300">
-                                    INDUSTRIES
-                                </p>
-                                <svg class="w-4 h-4 text-yellow-400 animate-spin group-hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                                </svg>
-                            </div>
-                        </div>
+                <div class="footer-section company">
+                    <div class="footer-logo">
+                        <h3>SUNSHINE</h3>
+                        <p>INDUSTRIES</p>
                     </div>
                     
-                    <p class="text-blue-100 leading-relaxed text-lg">
-                        Leading manufacturer of premium plastic products, committed to quality, innovation, and sustainability.
-                    </p>
+                    <p>Leading manufacturer of premium plastic products, committed to quality, innovation, and sustainability.</p>
                     
-                    <div class="flex items-center space-x-3 bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-full px-4 py-3 border border-orange-400/30 hover:border-orange-400/50 transition-all duration-300 group">
-                        <svg class="w-6 h-6 text-orange-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                        </svg>
-                        <span class="font-bold text-orange-200">ISO 9001:2015 Certified</span>
-                        <svg class="w-4 h-4 text-yellow-400 animate-spin group-hover:animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                        </svg>
+                    <div class="certification">
+                        <span class="cert-icon">✓</span>
+                        <span>ISO 9001:2015 Certified</span>
                     </div>
                 </div>
 
                 <!-- Quick Links -->
-                <div>
-                    <h4 class="text-2xl font-bold mb-8 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                        Quick Links
-                    </h4>
-                    <ul class="space-y-4">
-                        <li>
-                            <button onclick="scrollToSection('home')" class="group flex items-center text-blue-200 hover:text-white transition-all duration-300 text-lg font-medium">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-400 to-red-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                                Home
-                            </button>
-                        </li>
-                        <li>
-                            <button onclick="scrollToSection('about')" class="group flex items-center text-blue-200 hover:text-white transition-all duration-300 text-lg font-medium">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-400 to-red-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                                About
-                            </button>
-                        </li>
-                        <li>
-                            <button onclick="scrollToSection('products')" class="group flex items-center text-blue-200 hover:text-white transition-all duration-300 text-lg font-medium">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-400 to-red-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                                Products
-                            </button>
-                        </li>
-                        <li>
-                            <button onclick="scrollToSection('infrastructure')" class="group flex items-center text-blue-200 hover:text-white transition-all duration-300 text-lg font-medium">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-400 to-red-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                                Infrastructure
-                            </button>
-                        </li>
-                        <li>
-                            <button onclick="scrollToSection('contact')" class="group flex items-center text-blue-200 hover:text-white transition-all duration-300 text-lg font-medium">
-                                <div class="w-2 h-2 bg-gradient-to-r from-orange-400 to-red-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                                Contact
-                            </button>
-                        </li>
+                <div class="footer-section links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#infrastructure">Infrastructure</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
 
                 <!-- Products -->
-                <div>
-                    <h4 class="text-2xl font-bold mb-8 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                        Our Products
-                    </h4>
-                    <ul class="space-y-4 text-blue-200">
-                        <li class="group flex items-center text-lg">
-                            <div class="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                            Household Products
-                        </li>
-                        <li class="group flex items-center text-lg">
-                            <div class="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                            Plastic Furniture
-                        </li>
-                        <li class="group flex items-center text-lg">
-                            <div class="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                            Industrial Products
-                        </li>
-                        <li class="group flex items-center text-lg">
-                            <div class="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                            Waste Management
-                        </li>
-                        <li class="group flex items-center text-lg">
-                            <div class="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                            Custom Solutions
-                        </li>
+                <div class="footer-section products">
+                    <h4>Our Products</h4>
+                    <ul>
+                        <li>Household Products</li>
+                        <li>Plastic Furniture</li>
+                        <li>Industrial Products</li>
+                        <li>Waste Management</li>
+                        <li>Custom Solutions</li>
                     </ul>
                 </div>
 
                 <!-- Contact Info -->
-                <div>
-                    <h4 class="text-2xl font-bold mb-8 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                        Contact Info
-                    </h4>
-                    <div class="space-y-6">
-                        <div class="group flex items-start space-x-4 p-4 bg-gradient-to-r from-white/5 to-white/10 rounded-2xl hover:from-white/10 hover:to-white/15 transition-all duration-300 border border-white/10 hover:border-white/20">
-                            <svg class="w-6 h-6 text-orange-400 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-                            <div>
-                                <p class="text-white font-semibold text-lg">+91-9371636220</p>
-                                <p class="text-blue-200">+91-9890953585</p>
-                            </div>
+                <div class="footer-section contact">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <p>+91-9371636220</p>
+                            <p>+91-9890953585</p>
                         </div>
-                        
-                        <div class="group flex items-start space-x-4 p-4 bg-gradient-to-r from-white/5 to-white/10 rounded-2xl hover:from-white/10 hover:to-white/15 transition-all duration-300 border border-white/10 hover:border-white/20">
-                            <svg class="w-6 h-6 text-blue-400 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            <p class="text-blue-200 font-medium">sunshineindustries99@gmail.com</p>
-                        </div>
-                        
-                        <div class="group flex items-start space-x-4 p-4 bg-gradient-to-r from-white/5 to-white/10 rounded-2xl hover:from-white/10 hover:to-white/15 transition-all duration-300 border border-white/10 hover:border-white/20">
-                            <svg class="w-6 h-6 text-green-400 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
-                            </svg>
-                            <p class="text-blue-200 font-medium">www.shineplastindia.com</p>
-                        </div>
-                        
-                        <div class="group flex items-start space-x-4 p-4 bg-gradient-to-r from-white/5 to-white/10 rounded-2xl hover:from-white/10 hover:to-white/15 transition-all duration-300 border border-white/10 hover:border-white/20">
-                            <svg class="w-6 h-6 text-purple-400 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                            <div>
-                                <p class="text-white font-semibold mb-2">Head Office & Factory:</p>
-                                <p class="text-blue-200 text-sm leading-relaxed">
-                                    Plot No. B-7, MIDC, Mundipar<br>
-                                    GONDIA, Maharashtra - 441614
-                                </p>
-                                <p class="text-white font-semibold mt-4 mb-2">Branch Offices:</p>
-                                <p class="text-blue-200 text-sm">Raipur, Chhattisgarh</p>
-                                <p class="text-blue-200 text-sm">Nagpur, Maharashtra</p>
-                            </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <p>sunshineindustries99@gmail.com</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <p>www.shineplastindia.com</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <p><strong>Head Office & Factory:</strong></p>
+                            <p>Plot No. B-7, MIDC, Mundipar<br>GONDIA, Maharashtra - 441614</p>
+                            <p><strong>Branch Offices:</strong></p>
+                            <p>Raipur, Chhattisgarh</p>
+                            <p>Nagpur, Maharashtra</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Bottom Bar -->
-            <div class="border-t border-white/20 mt-16 pt-12">
-                <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-                    <div class="flex items-center space-x-4">
-                        <p class="text-blue-200 text-lg">
-                            © 2024 <span class="font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Sunshine Industries</span>. All rights reserved.
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-full px-6 py-3 border border-orange-400/30 hover:border-orange-400/50 transition-all duration-300 group">
-                        <svg class="w-5 h-5 text-yellow-400 animate-spin group-hover:animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                        </svg>
-                        <span class="text-orange-200 font-bold">Manufacturers of Premium Plastic Products</span>
-                        <svg class="w-4 h-4 text-yellow-400 animate-pulse group-hover:animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
-                        </svg>
-                    </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 <strong>Sunshine Industries</strong>. All rights reserved.</p>
+                    <p>Manufacturers of Premium Plastic Products</p>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- Notification Container -->
-    <div id="notification" class="notification"></div>
-
-    <!-- JavaScript -->
-    <script>
-        // Smooth scrolling function
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                const headerHeight = 120;
-                const targetPosition = element.offsetTop - headerHeight;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-        
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-        
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('main-header');
-            if (window.scrollY > 50) {
-                header.classList.add('bg-white/95', 'backdrop-blur-xl', 'shadow-2xl', 'py-3', 'border-b', 'border-gray-200/50');
-                header.classList.remove('bg-white/90', 'backdrop-blur-lg', 'py-6');
-            } else {
-                header.classList.remove('bg-white/95', 'backdrop-blur-xl', 'shadow-2xl', 'py-3', 'border-b', 'border-gray-200/50');
-                header.classList.add('bg-white/90', 'backdrop-blur-lg', 'py-6');
-            }
-        });
-        
-        // Product slider functionality
-        let currentSlide = 0;
-        const productImages = document.querySelectorAll('.product-slide');
-        const totalSlides = productImages.length;
-        
-        function showSlide(index) {
-            const slider = document.getElementById('product-slider');
-            if (slider) {
-                slider.style.transform = `translateX(-${index * 100}%)`;
-                currentSlide = index;
-                
-                // Update indicators
-                document.querySelectorAll('.slide-indicator').forEach((indicator, i) => {
-                    if (i === index) {
-                        indicator.classList.add('bg-white', 'scale-125', 'shadow-lg');
-                        indicator.classList.remove('bg-white/50');
-                    } else {
-                        indicator.classList.remove('bg-white', 'scale-125', 'shadow-lg');
-                        indicator.classList.add('bg-white/50');
-                    }
-                });
-            }
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-        
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-        }
-        
-        // Auto-advance slides
-        setInterval(nextSlide, 5000);
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') prevSlide();
-            if (e.key === 'ArrowRight') nextSlide();
-        });
-        
-        // Notification system
-        function showNotification(message, type = 'success') {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.className = `notification ${type}`;
-            notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 5000);
-        }
-        
-        // Form submission handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const submitBtn = document.getElementById('submit-btn');
-                    const submitText = document.getElementById('submit-text');
-                    const submitSpinner = document.getElementById('submit-spinner');
-                    
-                    // Show loading state
-                    if (submitBtn && submitText && submitSpinner) {
-                        submitBtn.disabled = true;
-                        submitText.textContent = 'Sending...';
-                        submitSpinner.classList.remove('hidden');
-                    }
-                    
-                    // Get form data
-                    const formData = new FormData(contactForm);
-                    const data = Object.fromEntries(formData);
-                    
-                    // Simulate form submission (replace with actual API call)
-                    setTimeout(() => {
-                        // Reset form
-                        contactForm.reset();
-                        
-                        // Reset button state
-                        if (submitBtn && submitText && submitSpinner) {
-                            submitBtn.disabled = false;
-                            submitText.textContent = 'Send Message';
-                            submitSpinner.classList.add('hidden');
-                        }
-                        
-                        // Show success message
-                        showNotification('Thank you for your message! We\'ll get back to you within 24 hours.', 'success');
-                    }, 2000);
-                });
-            }
-        });
-    </script>
 </body>
 </html>
